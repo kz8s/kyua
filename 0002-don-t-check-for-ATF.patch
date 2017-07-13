@@ -1,0 +1,35 @@
+From 932b1fdff3b4e72d0ab859c354358d4112607d8a Mon Sep 17 00:00:00 2001
+From: josh shepard <josh.shepard@bowerswilkins.com>
+Date: Wed, 21 Jun 2017 22:48:29 +0000
+Subject: [PATCH 75/75] don't check for ATF
+
+---
+ configure.ac | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 66c7c5d..e10616d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -51,8 +51,8 @@ KYUA_REQUIRE_CXX
+ KYUA_DEVELOPER_MODE([C++])
+ 
+ 
+-ATF_CHECK_CXX([>= 0.15])
+-ATF_CHECK_SH([>= 0.15])
++dnl ATF_CHECK_CXX([>= 0.15])
++dnl ATF_CHECK_SH([>= 0.15])
+ ATF_ARG_WITH
+ KYUA_DOXYGEN
+ KYUA_LUA
+@@ -62,6 +62,7 @@ AC_PATH_PROG([KYUA], [kyua])
+ AM_CONDITIONAL([HAVE_KYUA], [test -n "${KYUA}"])
+ AC_PATH_PROG([GIT], [git])
+ 
++AM_CONDITIONAL([WITH_ATF], 0)
+ 
+ AC_SUBST(pkgconfigdir, \${libdir}/pkgconfig)
+ AC_SUBST(testsdir, \${exec_prefix}/tests/lutok)
+-- 
+2.1.4
+

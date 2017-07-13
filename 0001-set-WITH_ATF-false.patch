@@ -1,0 +1,24 @@
+From 1b314589d69a243aca64f3d64476892680e36ae3 Mon Sep 17 00:00:00 2001
+From: josh shepard <josh.shepard@gmail.com>
+Date: Tue, 6 Jun 2017 13:27:00 -0700
+Subject: [PATCH] set WITH_ATF false
+
+---
+ configure.ac | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/configure.ac b/configure.ac
+index 66c7c5d..7c820c0 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -62,6 +62,7 @@ AC_PATH_PROG([KYUA], [kyua])
+ AM_CONDITIONAL([HAVE_KYUA], [test -n "${KYUA}"])
+ AC_PATH_PROG([GIT], [git])
+ 
++AM_CONDITIONAL([WITH_ATF], 0)
+ 
+ AC_SUBST(pkgconfigdir, \${libdir}/pkgconfig)
+ AC_SUBST(testsdir, \${exec_prefix}/tests/lutok)
+-- 
+2.7.4
+
