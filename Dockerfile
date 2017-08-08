@@ -1,4 +1,4 @@
-FROM kz8s/yocto
+FROM kz8s/yocto:jessie
 MAINTAINER jono <jono@bowerswilkins.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
